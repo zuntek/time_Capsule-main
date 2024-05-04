@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'CapInNet',
-      home: AddPostPage(),
+      home: HomeScreen(),
     );
   }
 }

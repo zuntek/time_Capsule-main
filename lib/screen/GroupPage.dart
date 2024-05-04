@@ -5,17 +5,20 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:time_capsule/controller/BottomButtonController.dart';
+import 'package:time_capsule/controller/PostController.dart';
 
 class GroupPage extends StatelessWidget {
   GroupPage({super.key});
   BottomButtonController bottomButtonController =
       Get.find<BottomButtonController>();
+  PostController postController = Get.find<PostController>();
 
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double width = screenSize.width;
     double height = screenSize.height;
+
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -24,7 +27,7 @@ class GroupPage extends StatelessWidget {
               // SliverFillRemaining 나중에 이거 함 써봐도 좋을듯
               automaticallyImplyLeading: false,
               // expandedHeight: 200,
-              toolbarHeight: height * 0.055,
+              toolbarHeight: height * 0.08,
               leadingWidth: width * 0.2,
               floating: false,
               // 스크롤 다시 올리면 appbar 보이게 하는거
@@ -46,215 +49,323 @@ class GroupPage extends StatelessWidget {
               leading: Row(
                 children: [
                   SizedBox(width: width * 0.03),
-                  Text(
-                    'Group',
-                    style: TextStyle(
-                      fontSize: width * 0.045,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '용인팟',
+                        style: TextStyle(
+                          fontSize: width * 0.035,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '그룹멤버: 5',
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.5),
+                            fontSize: width * 0.03),
+                      ),
+                    ],
                   )
                 ],
               ),
               actions: [
-                Icon(Icons.search, size: width * 0.083),
+                Icon(Icons.group_add, size: width * 0.083),
                 const Padding(padding: EdgeInsets.only(right: 8)),
-                Icon(Icons.menu, size: width * 0.09),
-                const Padding(padding: EdgeInsets.only(right: 10)),
               ],
             ),
-            /* SliverList(
-              delegate:
-                  SliverChildBuilderDelegate(childCount: 20, (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: index == 0
-                          ? const Border(top: BorderSide.none)
-                          : Border.all(
-                              color: const Color.fromARGB(255, 200, 196, 196),
-                              width: 0.7)),
-                  child: ListTile(
-                    title: Text('Group${index + 1}'),
-                    subtitle: const Text('this is subtitle'),
-                    isThreeLine: true,
-                    leading: Container(
-                      width: width * 0.1,
-                      height: height * 0.6,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                          ),
-                          borderRadius: BorderRadius.circular(150)),
-                      child: Icon(
-                        CupertinoIcons.group_solid,
-                        size: width * 0.08,
-                      ),
-                    ),
-                    // leading: const Image(
-                    //   image: AssetImage('images/profile.png'),
-                    // ),
-                  ),
-                );
-              }),
-            ),*/
-
-            /*SliverPadding(
-              padding: EdgeInsets.only(bottom: height * 0.05),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(),
               sliver: SliverToBoxAdapter(
                 child: Container(
-                  color: const Color.fromARGB(255, 189, 201, 247),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  decoration:
+                      const BoxDecoration(color: Colors.white, boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 0,
+                      blurRadius: 5.0,
+                      offset: Offset(0, 10), // changes position of shadow
+                    ),
+                  ]),
+                  child: Column(
                     children: [
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.add_box,
-                            size: height * 0.05,
+                      SizedBox(
+                        height: height * 0.02,
+                      ),
+                      SizedBox(
+                        width: width * 0.7,
+                        height: height * 0.4,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(width: 0.0, color: Colors.white),
+                            image: const DecorationImage(
+                              image: AssetImage("images/background.png"),
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          const Text('파티 만들기'),
+                        ),
+                      ),
+                      Text(
+                        '용인대 최고의 파티, 용인팟',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: width * 0.05),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.location_on,
+                          ),
+                          Text(
+                            '주활동지: 경기도 용인시 처인구', //위치값 받기
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.5),
+                            ),
+                          ),
                         ],
                       ),
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.search,
-                            size: height * 0.05,
-                          ),
-                          const Text('파티 검색'),
-                        ],
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                            '어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구'),
                       ),
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.group_add,
-                            size: height * 0.05,
-                          ),
-                          const Text('친구 추가'),
-                        ],
+                      Text(
+                        '생성일자: 2024년 4월 28일',
+                        style: TextStyle(
+                          color: Colors.black.withOpacity(0.5),
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.02,
                       ),
                     ],
                   ),
                 ),
               ),
-            ),*/
-            SliverPadding(
-              padding: EdgeInsets.symmetric(vertical: height * 0.03),
-              sliver: SliverToBoxAdapter(
-                  child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            '참가중인 파티가 없으시다면, 지금 바로 만들어보세요!',
-                            style: TextStyle(
-                              color: Colors.black.withOpacity(0.5),
-                              fontSize: width * 0.03,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.add_box,
-                            size: height * 0.03,
-                          ),
-                          Text(
-                            '파티 만들기',
-                            style: TextStyle(
-                              color: Colors.black.withOpacity(0.5),
-                              fontSize: width * 0.03,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: height * 0.03,
-                  ),
-                  Text(
-                    '참여중인 파티',
-                    style: TextStyle(
-                      fontSize: width * 0.05,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black.withOpacity(0.8),
-                    ),
-                  ),
-                ],
-              )),
             ),
-            SliverGrid(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      border: Border.all(width: 0.5, color: Colors.white),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(),
+              sliver: SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: height * 0.05,
                     ),
-                    child: Column(
-                      children: [
-                        Card(
-                          shadowColor: const Color.fromARGB(255, 147, 167, 242),
-                          elevation: 3,
-                          clipBehavior: Clip.antiAlias,
-                          shape: const StadiumBorder(
-                              side: BorderSide(
-                            width: 1,
-                          )),
-                          child: SizedBox(
-                            width: width * 0.35,
-                            height: height * 0.19,
-                            child: const Image(
-                              image: AssetImage('images/profile.png'),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Group${index + 1}',
-                          style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: width * 0.02),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                children: [
-                                  Icon(Icons.group_add),
-                                  Text('파티원 추가'),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Icon(
-                                    Icons.navigate_next,
-                                  ),
-                                  Text('파티 입장'),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
+                    Text(
+                      '용인팟의 최신글',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: width * 0.05),
                     ),
-                  );
-                },
-                childCount: 20,
+                  ],
+                ),
               ),
-            )
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(),
+              sliver: SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return Container(
+                      // 화면 전체 박스
+                      color: Colors.white,
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                                padding: EdgeInsets.only(top: height * 0.02)),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                      width: 0.5, color: Colors.black),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: Colors.grey,
+                                      spreadRadius: 0,
+                                      blurRadius: 5.0,
+                                      offset: Offset(
+                                          0, 10), // changes position of shadow
+                                    ),
+                                  ]),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: width * 0.02,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: height * 0.02,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.01,
+                                        vertical: height * 0.01,
+                                      ),
+                                      child: SizedBox(
+                                        height: height * 0.3,
+                                        width: width * 0.9,
+                                        child: ListView(
+                                          scrollDirection: Axis.horizontal,
+                                          children: <Widget>[
+                                            Container(
+                                              width: width *
+                                                  0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                                              height: height *
+                                                  0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                                              decoration: const BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      "images/background.png"),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: width * 0.01,
+                                            ),
+                                            Container(
+                                              width: width *
+                                                  0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                                              height: height *
+                                                  0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                                              decoration: const BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      "images/background.png"),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: width * 0.01,
+                                            ),
+                                            Container(
+                                              width: width *
+                                                  0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                                              height: height *
+                                                  0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                                              decoration: const BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      "images/background.png"),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: width * 0.01,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          'zzuntekk',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: width * 0.04),
+                                        ),
+                                        SizedBox(
+                                          width: width * 0.02,
+                                        ),
+                                        Text(
+                                          '용인팟',
+                                          style: TextStyle(
+                                              color:
+                                                  Colors.black.withOpacity(0.5),
+                                              fontSize: width * 0.03),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.location_on,
+                                        ),
+                                        Text(
+                                          '서울시 강서구에서.', //위치값 받기
+                                          style: TextStyle(
+                                              color:
+                                                  Colors.black.withOpacity(0.5),
+                                              fontSize: width * 0.03),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: width * 0.005),
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                        child: const Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', //글 내용
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.02,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        const Padding(
+                                          padding: EdgeInsets.only(left: 13),
+                                        ),
+                                        Transform.translate(
+                                          offset: const Offset(0, 2.5),
+                                          child: Icon(
+                                            CupertinoIcons.heart,
+                                            size: width * 0.065,
+                                          ),
+                                        ),
+                                        const Padding(
+                                            padding: EdgeInsets.only(left: 12)),
+                                        Icon(
+                                          CupertinoIcons.share,
+                                          size: width * 0.062,
+                                        ),
+                                        const Padding(
+                                            padding: EdgeInsets.only(left: 12)),
+                                        Transform.translate(
+                                          offset: const Offset(0, 1.1),
+                                          child: Icon(
+                                            CupertinoIcons.chat_bubble,
+                                            size: width * 0.062,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.02,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ]),
+                    );
+                  },
+                  childCount: 1, // SliverList에는 하나의 자식만 필요합니다.
+                ),
+              ),
+            ),
           ],
         ),
       ),

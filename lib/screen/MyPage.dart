@@ -66,252 +66,259 @@ class MyPage extends StatelessWidget {
               ],
             ),
             SliverToBoxAdapter(
-              child: Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                        width: 0.3, color: Color.fromARGB(255, 255, 255, 255)),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: height * 0.04,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(20),
+                      right: Radius.circular(20),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Card(
-                          shadowColor: const Color.fromARGB(255, 147, 167, 242),
-                          elevation: 5,
-                          clipBehavior: Clip.antiAlias,
-                          shape: const CircleBorder(
-                              side: BorderSide(
-                                  width: 1,
-                                  color: Color.fromARGB(255, 147, 167, 242))),
-                          child: SizedBox(
-                            width: width * 0.35,
-                            height: height * 0.19,
-                            /*child: const Image(
-                              image: AssetImage('images/profile.png'),
-                            ),*/
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.05,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(0.8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                    border: Border(
+                      bottom: BorderSide(
+                          width: 0.3,
+                          color: Color.fromARGB(255, 255, 255, 255)),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: height * 0.04,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                'zzuntekk',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
+                              Card(
+                                shadowColor:
+                                    const Color.fromARGB(255, 147, 167, 242),
+                                elevation: 5,
+                                clipBehavior: Clip.antiAlias,
+                                shape: const CircleBorder(
+                                    side: BorderSide(
+                                        width: 1,
+                                        color: Color.fromARGB(
+                                            255, 147, 167, 242))),
+                                child: SizedBox(
+                                  width: width * 0.35,
+                                  height: height * 0.19,
+                                  child: const Image(
+                                    image: AssetImage('images/profile.png'),
+                                  ),
                                 ),
                               ),
-                              Text(
-                                '홍준택',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'zzuntekk',
+                                    style: TextStyle(
+                                      fontSize: width * 0.05,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Text(
+                                    '홍준택',
+                                    style: TextStyle(
+                                      fontSize: width * 0.03,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                '#546123',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        '서울',
+                                        style: TextStyle(
+                                          fontSize: width * 0.03,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                      Text(
+                                        '주 거주지',
+                                        style: TextStyle(
+                                          fontSize: width * 0.03,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: width * 0.05,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        '3',
+                                        style: TextStyle(
+                                          fontSize: width * 0.03,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Text(
+                                        '게시글 수',
+                                        style: TextStyle(
+                                          fontSize: width * 0.03,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.05,
-                    )
-                  ],
-                ),
-              ),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.only(),
-              sliver: SliverToBoxAdapter(
-                child: Container(
-                  color: const Color.fromARGB(255, 189, 201, 247),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        children: [
-                          Icon(
-                            CupertinoIcons.list_bullet,
-                            size: height * 0.05,
-                          ),
-                          const Text('게시글 관리'),
                         ],
                       ),
-                      Column(
+                      SizedBox(
+                        height: height * 0.05,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Icon(
-                            CupertinoIcons.profile_circled,
-                            size: height * 0.05,
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(20),
+                                right: Radius.circular(20),
+                              ),
+                            ),
+                            child: SizedBox(
+                              width: width * 0.35,
+                              height: height * 0.06,
+                              child: const Center(
+                                child: Text(
+                                  '프로필 수정',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                          const Text('프로필 수정'),
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(20),
+                                right: Radius.circular(20),
+                              ),
+                            ),
+                            child: SizedBox(
+                              width: width * 0.35,
+                              height: height * 0.06,
+                              child: const Center(
+                                child: Text(
+                                  '프로필 수정',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
+                      ),
+                      SizedBox(
+                        height: height * 0.04,
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-            SliverPadding(
-              padding: EdgeInsets.all(width * 0.05),
-              sliver: SliverToBoxAdapter(
-                  child: Row(
-                children: [
-                  Text(
-                    '총 0개의 소중한 추억',
-                    style: TextStyle(
-                      fontSize: width * 0.05,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black.withOpacity(0.8),
-                    ),
-                  )
-                ],
-              )),
-            ),
             SliverGrid(
-                delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 189, 201, 247),
-                          border: Border.all(
-                              width: 0.3,
-                              color: const Color.fromARGB(255, 0, 0, 0)),
-                          borderRadius: const BorderRadius.horizontal(
-                              left: Radius.circular(20),
-                              right: Radius.circular(20)),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.grey,
-                              spreadRadius: 0,
-                              blurRadius: 5.0,
-                              offset:
-                                  Offset(0, 10), // changes position of shadow
-                            ),
-                          ]),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: width * 0.03,
-                                vertical: height * 0.01),
-                            child: SizedBox(
-                              width: width * 0.6,
-                              height: height * 0.2,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.0, color: Colors.white),
-                                  borderRadius: const BorderRadius.horizontal(
-                                      left: Radius.circular(20),
-                                      right: Radius.circular(20)),
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                        "images/background.png"), // 배경 이미지 경로
-                                    fit: BoxFit.cover, // 이미지가 컨테이너를 꽉 채우도록 설정
-                                  ),
-                                ),
-                                /*child: Image.network(
-                                  postController.postList[index].image ?? '',
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        width: 0.3,
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                      ),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 0,
+                          blurRadius: 5.0,
+                          offset: Offset(0, 10),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width * 0.03,
+                              vertical: height * 0.03),
+                          child: SizedBox(
+                            width: width * 0.6,
+                            height: height * 0.15,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                image: DecorationImage(
+                                  image: AssetImage("images/background.png"),
                                   fit: BoxFit.cover,
-                                ),*/
+                                ),
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: height * 0.005,
+                        ),
+                        SizedBox(
+                          height: height * 0.005,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: width * 0.02,
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: width * 0.02,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                /* Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 1.5),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        '2024.4.10의 소중한 추억.',
-                                        style: TextStyle(
-                                            fontSize: width * 0.015,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        '서울시 강서구 화곡3동',
-                                        style: TextStyle(
-                                          fontSize: width * 0.015,
-                                        ),
-                                      ),
-                                    ],
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '서울시 강서구',
+                                style: TextStyle(
+                                  fontSize: width * 0.025,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.heart,
                                   ),
-                                ),*/
-                                Text(
-                                  '2024.4.10/서울시 강서구',
-                                  style: TextStyle(
-                                      fontSize: width * 0.025,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Icon(
-                                      CupertinoIcons.heart,
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Icon(
-                                      CupertinoIcons.chat_bubble,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                  childCount: postController.postList.length,
-                ),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  // 한 줄에 보일 내용의 수 - 필수값
-                  crossAxisCount: 2,
-
-                  // GridView Item 간의 세로 간격
-                  crossAxisSpacing: 10,
-
-                  // GridView Item 간의 가로 간격
-                  mainAxisSpacing: 10,
-
-                  // GridView Item 의 가로 길이
-                  mainAxisExtent: 200,
-                ))
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Icon(
+                                    CupertinoIcons.chat_bubble,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+                childCount: postController.postList.length,
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                mainAxisExtent: 200,
+              ),
+            )
           ],
         ),
       ),

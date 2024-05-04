@@ -28,6 +28,12 @@ class HomeScreen extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     double width = screenSize.width;
     double height = screenSize.height;
+    final List<String> images = [
+      'images/profile.png'
+          'images/profile.png'
+          'images/profile.png'
+      // Add more image URLs as needed
+    ];
 
     return Scaffold(
       floatingActionButton: ExpandableFab(
@@ -38,7 +44,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("images/background.png"), // 배경 이미지 경로
+                image: AssetImage("images/image.png"), // 배경 이미지 경로
                 fit: BoxFit.cover, // 이미지가 컨테이너를 꽉 채우도록 설정
               ),
             ),
@@ -55,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                     color: const Color.fromARGB(255, 53, 68, 80)),
               ),
               // SliverFillRemaining 나중에 이거 함 써봐도 좋을듯
-              toolbarHeight: height * 0.055,
+              toolbarHeight: height * 0.08,
               leadingWidth: width * 0.2,
               floating: true,
               // 스크롤 다시 올리면 appbar 보이게 하는거
@@ -116,6 +122,122 @@ class HomeScreen extends StatelessWidget {
                 // const Padding(padding: EdgeInsets.only(right: 10)),
               ],
             ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(),
+              sliver: SliverToBoxAdapter(
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: height * 0.01),
+                        child: SizedBox(
+                          height: width * 0.15,
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                            ),
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: <Widget>[
+                                Container(
+                                  width: width * 0.2,
+                                  height: height * 0.5,
+                                  decoration: const BoxDecoration(),
+                                  child: Column(
+                                    children: [
+                                      Icon(
+                                        Icons.add_box,
+                                        size: width * 0.1,
+                                      ),
+                                      const Text('파티 만들기'),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                Container(
+                                  width: width * 0.15,
+                                  height: height * 0.5,
+                                  decoration: const BoxDecoration(),
+                                  child: Column(
+                                    children: [
+                                      Icon(
+                                        Icons.group,
+                                        size: width * 0.1,
+                                      ),
+                                      const Text('파티'),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                Container(
+                                  width: width * 0.15,
+                                  height: height * 0.5,
+                                  decoration: const BoxDecoration(),
+                                  child: Column(
+                                    children: [
+                                      Icon(
+                                        Icons.group,
+                                        size: width * 0.1,
+                                      ),
+                                      const Text('파티'),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                Container(
+                                  width: width * 0.15,
+                                  height: height * 0.5,
+                                  decoration: const BoxDecoration(),
+                                  child: Column(
+                                    children: [
+                                      Icon(
+                                        Icons.group,
+                                        size: width * 0.1,
+                                      ),
+                                      const Text('파티'),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                Container(
+                                  width: width * 0.15,
+                                  height: height * 0.5,
+                                  decoration: const BoxDecoration(),
+                                  child: Column(
+                                    children: [
+                                      Icon(
+                                        Icons.group,
+                                        size: width * 0.1,
+                                      ),
+                                      const Text('파티'),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.02,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
             Obx(() {
               if (postController.postList.isEmpty) {
                 return SliverToBoxAdapter(
@@ -138,60 +260,163 @@ class HomeScreen extends StatelessWidget {
                     (context, index) {
                       return Container(
                         // 화면 전체 박스
-
+                        color: Colors.white,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              // if (index == 0)
-                              //   Container(
-                              //     padding: const EdgeInsets.only(left: 25),
-                              //     alignment: Alignment.bottomLeft,
-                              //     height: height * 0.16,
-                              //     color: const Color.fromARGB(255, 212, 164, 164),
-                              //   ),
-                              const Padding(padding: EdgeInsets.only(top: 25)),
+                              Padding(
+                                  padding: EdgeInsets.only(top: height * 0.02)),
                               Container(
-                                margin: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color:
-                                          const Color.fromARGB(255, 0, 0, 0)),
-                                  borderRadius: const BorderRadius.horizontal(
-                                      left: Radius.circular(20),
-                                      right: Radius.circular(20)),
-                                ),
-                                width: width,
-                                height: height * 0.53,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(top: 10),
-                                      height: height * 0.35,
-                                      width: width * 0.9,
-                                      clipBehavior: Clip.hardEdge,
-                                      decoration: const BoxDecoration(
-                                        // color: Colors.amber,
-                                        borderRadius: BorderRadius.horizontal(
-                                            left: Radius.circular(20),
-                                            right: Radius.circular(20)),
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        width: 0.5, color: Colors.black),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color: Colors.grey,
+                                        spreadRadius: 0,
+                                        blurRadius: 5.0,
+                                        offset: Offset(0,
+                                            10), // changes position of shadow
                                       ),
-                                      child: Image.network(
-                                        postController.postList[index].image ??
-                                            '',
-                                        fit: BoxFit.cover,
+                                    ]),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: width * 0.02,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        height: height * 0.02,
                                       ),
-                                    ),
-                                    const Padding(
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 5)),
-                                    Container(
-                                      decoration: const BoxDecoration(),
-                                      height: height * 0.045,
-                                      width: width,
-                                      child: Row(
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: width * 0.01,
+                                          vertical: height * 0.01,
+                                        ),
+                                        child: SizedBox(
+                                          height: height * 0.3,
+                                          width: width * 0.9,
+                                          child: ListView(
+                                            scrollDirection: Axis.horizontal,
+                                            children: <Widget>[
+                                              Container(
+                                                width: width *
+                                                    0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                                                height: height *
+                                                    0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                                                decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                        "images/background.png"),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                              Container(
+                                                width: width *
+                                                    0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                                                height: height *
+                                                    0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                                                decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                        "images/background.png"),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                              Container(
+                                                width: width *
+                                                    0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                                                height: height *
+                                                    0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                                                decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                        "images/background.png"),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            'zzuntekk',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.04),
+                                          ),
+                                          SizedBox(
+                                            width: width * 0.02,
+                                          ),
+                                          Text(
+                                            '용인팟',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.5),
+                                                fontSize: width * 0.03),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.location_on,
+                                          ),
+                                          Text(
+                                            '서울시 강서구에서.', //위치값 받기
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.5),
+                                                fontSize: width * 0.03),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: width * 0.005),
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                            color: Colors.white,
+                                          ),
+                                          child: const Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', //글 내용
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.02,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           const Padding(
                                             padding: EdgeInsets.only(left: 13),
@@ -222,38 +447,11 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: height * 0.002,
-                                    ),
-                                    Container(
-                                      decoration: const BoxDecoration(
-                                          // color: Colors.amber,
-
-                                          ),
-                                      width: width,
-                                      height: height * 0.1,
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: width * 0.03,
-                                            vertical: height * 0.005),
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                              hintText: '빠른 댓글 작성',
-                                              labelStyle: TextStyle(
-                                                fontSize: width * 0.03,
-                                                color: Colors.black,
-                                              ),
-                                              prefixIcon: const Icon(
-                                                CupertinoIcons.paperplane,
-                                              )),
-                                          maxLength: 20,
-                                          maxLines: 3,
-                                        ),
-                                      ),
-                                    )
-                                  ],
+                                      SizedBox(
+                                        height: height * 0.02,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ]),

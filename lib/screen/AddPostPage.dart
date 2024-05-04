@@ -75,7 +75,7 @@ class AddPostPage extends StatelessWidget {
                         fontWeight: FontWeight.bold, fontSize: width * 0.05),
                   ),
                   const Text(
-                    '위치: 서울시 강서구',
+                    '위치: 서울시 강서구', //위치 받는부분으로 만들기
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -86,6 +86,7 @@ class AddPostPage extends StatelessWidget {
                     child: SizedBox(
                       height: width * 0.4,
                       child: ListView(
+                        //좀더 자연스럽게 구현
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
                           Container(
@@ -133,7 +134,7 @@ class AddPostPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.add_a_photo),
-                                Text('사진 추가하기')
+                                Text('사진 추가하기') //추가하는 부분... ㅈㄴ 어렵더라...
                               ],
                             ),
                           ),
@@ -148,8 +149,8 @@ class AddPostPage extends StatelessWidget {
                     onChanged: (val) {
                       postController.postText.value = val;
                     },
-                    maxLines: 10,
-                    minLines: 10, // 이거 textField 기본 height 값 늘리는 방법
+                    maxLines: 8,
+                    minLines: 8, // 이거 textField 기본 height 값 늘리는 방법
                     decoration: const InputDecoration(
                       labelText: '글 입력',
                       floatingLabelBehavior: FloatingLabelBehavior.always,
