@@ -74,12 +74,6 @@ class AddPostPage extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: width * 0.05),
                   ),
-                  const Text(
-                    '위치: 서울시 강서구', //위치 받는부분으로 만들기
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: width * 0.03, vertical: height * 0.005),
@@ -139,6 +133,27 @@ class AddPostPage extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: height * 0.05,
+                  ),
+                  TextField(
+                    onChanged: (val) {
+                      postController.postText.value = val;
+                    },
+                    maxLines: 1,
+                    minLines: 1, // 이거 textField 기본 height 값 늘리는 방법
+                    decoration: const InputDecoration(
+                      labelText: '위치 입력',
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      labelStyle: TextStyle(color: Colors.black),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.horizontal(
+                          left: Radius.circular(10),
+                          right: Radius.circular(10),
+                        ),
                       ),
                     ),
                   ),

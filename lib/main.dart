@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:time_capsule/screen/AddPostPage.dart';
-import 'package:time_capsule/screen/Capshule.dart';
+import 'package:time_capsule/screen/Capsule.dart';
 import 'package:time_capsule/screen/Chat_Screen.dart';
 import 'package:time_capsule/screen/CommentPage.dart';
+import 'package:time_capsule/screen/JoinPage.dart';
 import 'package:time_capsule/screen/MyPage.dart';
 import 'package:time_capsule/controller/LocationController.dart';
 import 'package:time_capsule/controller/PostController.dart';
@@ -70,7 +71,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'CapInNet',
-      home: HomeScreen(),
+      home: Capsule(),
     );
   }
 }
