@@ -28,7 +28,7 @@ class GroupPage extends StatelessWidget {
               automaticallyImplyLeading: false,
               // expandedHeight: 200,
               toolbarHeight: height * 0.08,
-              leadingWidth: width * 0.2,
+              leadingWidth: width * 0.5,
               floating: false,
               // 스크롤 다시 올리면 appbar 보이게 하는거
               snap: false,
@@ -50,7 +50,7 @@ class GroupPage extends StatelessWidget {
                 children: [
                   SizedBox(width: width * 0.03),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         '용인팟',
@@ -59,18 +59,33 @@ class GroupPage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
-                        '그룹멤버: 5',
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.5),
-                            fontSize: width * 0.03),
+                      TextButton(
+                        onPressed: () {
+                          // 버튼이 눌렸을 때 실행되는 코드 작성
+                        },
+                        child: Text(
+                          '그룹멤버: 5',
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.5),
+                              fontSize: width * 0.03),
+                        ),
                       ),
                     ],
                   )
                 ],
               ),
               actions: [
-                Icon(Icons.group_add, size: width * 0.083),
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.only(left: 5),
+                  ),
+                  child: Icon(
+                    color: Colors.black,
+                    Icons.group_add,
+                    size: width * 0.065,
+                  ),
+                ),
                 const Padding(padding: EdgeInsets.only(right: 8)),
               ],
             ),
@@ -266,22 +281,30 @@ class GroupPage extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Text(
-                                          'zzuntekk',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: width * 0.04),
+                                        TextButton(
+                                          onPressed: () {
+                                            // 버튼이 눌렸을 때 실행되는 코드 작성
+                                          },
+                                          child: Text(
+                                            'zzuntekk',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.04),
+                                          ),
                                         ),
-                                        SizedBox(
-                                          width: width * 0.02,
-                                        ),
-                                        Text(
-                                          '용인팟',
-                                          style: TextStyle(
+                                        TextButton(
+                                          onPressed: () {
+                                            // 버튼이 눌렸을 때 실행되는 코드 작성
+                                          },
+                                          child: Text(
+                                            '용인팟',
+                                            style: TextStyle(
                                               color:
                                                   Colors.black.withOpacity(0.5),
-                                              fontSize: width * 0.03),
-                                        ),
+                                              fontSize: width * 0.03,
+                                            ),
+                                          ),
+                                        )
                                       ],
                                     ),
                                     Row(
@@ -289,12 +312,17 @@ class GroupPage extends StatelessWidget {
                                         const Icon(
                                           Icons.location_on,
                                         ),
-                                        Text(
-                                          '서울시 강서구에서.', //위치값 받기
-                                          style: TextStyle(
-                                              color:
-                                                  Colors.black.withOpacity(0.5),
-                                              fontSize: width * 0.03),
+                                        TextButton(
+                                          onPressed: () {
+                                            // 버튼이 눌렸을 때 실행되는 코드 작성
+                                          },
+                                          child: Text(
+                                            '서울시 강서구에서.', //위치값 받기
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.5),
+                                                fontSize: width * 0.03),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -325,29 +353,73 @@ class GroupPage extends StatelessWidget {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        const Padding(
-                                          padding: EdgeInsets.only(left: 13),
-                                        ),
-                                        Transform.translate(
-                                          offset: const Offset(0, 2.5),
-                                          child: Icon(
-                                            CupertinoIcons.heart,
-                                            size: width * 0.065,
+                                        TextButton(
+                                          onPressed: () {},
+                                          style: TextButton.styleFrom(
+                                            padding:
+                                                const EdgeInsets.only(left: 5),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                color: Colors.black,
+                                                CupertinoIcons.heart,
+                                                size: width * 0.065,
+                                              ),
+                                              const Text(
+                                                '13',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                        const Padding(
-                                            padding: EdgeInsets.only(left: 12)),
-                                        Icon(
-                                          CupertinoIcons.share,
-                                          size: width * 0.062,
+                                        TextButton(
+                                          onPressed: () {},
+                                          style: TextButton.styleFrom(
+                                            padding:
+                                                const EdgeInsets.only(left: 5),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                color: Colors.black,
+                                                CupertinoIcons.chat_bubble,
+                                                size: width * 0.062,
+                                              ),
+                                              const Text(
+                                                '13',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        const Padding(
-                                            padding: EdgeInsets.only(left: 12)),
-                                        Transform.translate(
-                                          offset: const Offset(0, 1.1),
-                                          child: Icon(
-                                            CupertinoIcons.chat_bubble,
-                                            size: width * 0.062,
+                                        TextButton(
+                                          onPressed: () {},
+                                          style: TextButton.styleFrom(
+                                            padding:
+                                                const EdgeInsets.only(left: 5),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                color: Colors.black,
+                                                CupertinoIcons.share,
+                                                size: width * 0.062,
+                                              ),
+                                              const Text(
+                                                '13',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],

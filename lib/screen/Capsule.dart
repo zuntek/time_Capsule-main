@@ -65,197 +65,229 @@ class Capsule extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            // 화면 전체 박스
-            color: Colors.white,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(padding: EdgeInsets.only(top: height * 0.02)),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(width: 0.5, color: Colors.black),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.grey,
-                            spreadRadius: 0,
-                            blurRadius: 5.0,
-                            offset: Offset(0, 10), // changes position of shadow
+            child: Container(
+          // 화면 전체 박스
+          color: Colors.white,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Padding(padding: EdgeInsets.only(top: height * 0.02)),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(width: 0.5, color: Colors.black),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 0,
+                      blurRadius: 5.0,
+                      offset: Offset(0, 10), // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: width * 0.02,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: height * 0.02,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '캡슐이름 넣는곳',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: width * 0.04),
+                        ),
+                        Text(
+                          '2000.3.28에 업로드 - 날짜 넣는곳',
+                          style: TextStyle(
+                            color: Colors.black.withOpacity(0.5),
+                            fontSize: width * 0.03,
                           ),
-                        ]),
-                    child: Padding(
+                        ),
+                      ],
+                    ),
+                    Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.02,
+                        horizontal: width * 0.01,
+                        vertical: height * 0.01,
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: height * 0.02,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: width * 0.01,
-                              vertical: height * 0.01,
-                            ),
-                            child: SizedBox(
-                              height: height * 0.3,
-                              width: width * 0.9,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: <Widget>[
-                                  Container(
-                                    width:
-                                        width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
-                                    height: height *
-                                        0.15, // 이미지의 높이를 화면 높이의 40%로 설정
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image:
-                                            AssetImage("images/background.png"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: width * 0.01,
-                                  ),
-                                  Container(
-                                    width:
-                                        width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
-                                    height: height *
-                                        0.15, // 이미지의 높이를 화면 높이의 40%로 설정
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image:
-                                            AssetImage("images/background.png"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: width * 0.01,
-                                  ),
-                                  Container(
-                                    width:
-                                        width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
-                                    height: height *
-                                        0.15, // 이미지의 높이를 화면 높이의 40%로 설정
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image:
-                                            AssetImage("images/background.png"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: width * 0.01,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                'zzuntekk',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: width * 0.04),
-                              ),
-                              SizedBox(
-                                width: width * 0.02,
-                              ),
-                              Text(
-                                '용인팟',
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.5),
-                                    fontSize: width * 0.03),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.location_on,
-                              ),
-                              Text(
-                                '서울시 강서구에서.', //위치값 받기
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.5),
-                                    fontSize: width * 0.03),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.symmetric(horizontal: width * 0.005),
-                            child: Container(
+                      child: SizedBox(
+                        height: height * 0.3,
+                        width: width * 0.9,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            Container(
+                              width: width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                              height: height * 0.15, // 이미지의 높이를 화면 높이의 40%로 설정
                               decoration: const BoxDecoration(
-                                color: Colors.white,
-                              ),
-                              child: const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', //글 내용
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
+                                image: DecorationImage(
+                                  image: AssetImage("images/background.png"),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: height * 0.02,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(left: 13),
-                              ),
-                              Transform.translate(
-                                offset: const Offset(0, 2.5),
-                                child: Column(
-                                  children: [
-                                    Icon(
-                                      CupertinoIcons.heart,
-                                      size: width * 0.065,
-                                    ),
-                                    const Text('12'),
-                                  ],
+                            SizedBox(
+                              width: width * 0.01,
+                            ),
+                            Container(
+                              width: width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                              height: height * 0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("images/background.png"),
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                              const Padding(padding: EdgeInsets.only(left: 12)),
-                              Transform.translate(
-                                offset: const Offset(0, 1.1),
-                                child: Column(
-                                  children: [
-                                    Icon(
-                                      CupertinoIcons.chat_bubble,
-                                      size: width * 0.062,
-                                    ),
-                                    const Text('10'),
-                                  ],
+                            ),
+                            SizedBox(
+                              width: width * 0.01,
+                            ),
+                            Container(
+                              width: width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
+                              height: height * 0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("images/background.png"),
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.02,
-                          )
-                        ],
+                            ),
+                            SizedBox(
+                              width: width * 0.01,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ]),
-          ),
-        ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            // 버튼이 눌렸을 때 실행되는 코드 작성
+                          },
+                          child: Text(
+                            'zzuntekk',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: width * 0.04),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            // 버튼이 눌렸을 때 실행되는 코드 작성
+                          },
+                          child: Text(
+                            '용인팟',
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.5),
+                              fontSize: width * 0.03,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            // 버튼이 눌렸을 때 실행되는 코드 작성
+                          },
+                          child: Text(
+                            '서울시 강서구에서.', //위치값 받기
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.5),
+                                fontSize: width * 0.03),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: width * 0.005),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', //글 내용
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.02,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.only(left: 5),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                color: Colors.black,
+                                CupertinoIcons.heart,
+                                size: width * 0.065,
+                              ),
+                              const Text(
+                                '13',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.only(left: 5),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                color: Colors.black,
+                                CupertinoIcons.chat_bubble,
+                                size: width * 0.062,
+                              ),
+                              const Text(
+                                '13',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: height * 0.02,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ]),
+        )),
       ),
     );
   }

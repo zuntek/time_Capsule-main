@@ -140,90 +140,126 @@ class HomeScreen extends StatelessWidget {
                             child: ListView(
                               scrollDirection: Axis.horizontal,
                               children: <Widget>[
-                                Container(
-                                  width: width * 0.2,
-                                  height: height * 0.5,
-                                  decoration: const BoxDecoration(),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets
+                                        .zero, // 패딩을 0으로 설정하여 아이콘과 텍스트 사이의 간격을 없앰
+                                  ),
                                   child: Column(
+                                    mainAxisSize: MainAxisSize
+                                        .min, // Column의 크기를 최소화하여 아이콘과 텍스트를 세로로 배열
                                     children: [
-                                      Icon(
-                                        Icons.add_box,
-                                        size: width * 0.1,
-                                      ),
-                                      const Text('파티 만들기'),
+                                      Icon(Icons.add_box,
+                                          size: width * 0.1,
+                                          color: Colors.black), // 아이콘 추가
+                                      const Text(
+                                        '파티 만들기',
+                                        style: TextStyle(
+                                            color: Colors
+                                                .black), // 텍스트 색상을 흰색으로 설정
+                                      ), // 텍스트 추가
                                     ],
                                   ),
                                 ),
                                 SizedBox(
                                   width: width * 0.02,
                                 ),
-                                Container(
-                                  width: width * 0.15,
-                                  height: height * 0.5,
-                                  decoration: const BoxDecoration(),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.03),
+                                  ),
                                   child: Column(
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(
-                                        Icons.group,
-                                        size: width * 0.1,
+                                      Icon(Icons.group,
+                                          size: width * 0.1,
+                                          color: Colors.black),
+                                      const Text(
+                                        '파티',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                      const Text('파티'),
                                     ],
                                   ),
                                 ),
                                 SizedBox(
                                   width: width * 0.02,
                                 ),
-                                Container(
-                                  width: width * 0.15,
-                                  height: height * 0.5,
-                                  decoration: const BoxDecoration(),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.03),
+                                  ),
                                   child: Column(
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(
-                                        Icons.group,
-                                        size: width * 0.1,
+                                      Icon(Icons.group,
+                                          size: width * 0.1,
+                                          color: Colors.black),
+                                      const Text(
+                                        '파티',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                      const Text('파티'),
                                     ],
                                   ),
                                 ),
                                 SizedBox(
                                   width: width * 0.02,
                                 ),
-                                Container(
-                                  width: width * 0.15,
-                                  height: height * 0.5,
-                                  decoration: const BoxDecoration(),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.03),
+                                  ),
                                   child: Column(
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(
-                                        Icons.group,
-                                        size: width * 0.1,
+                                      Icon(Icons.group,
+                                          size: width * 0.1,
+                                          color: Colors.black),
+                                      const Text(
+                                        '파티',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                      const Text('파티'),
                                     ],
                                   ),
                                 ),
                                 SizedBox(
                                   width: width * 0.02,
                                 ),
-                                Container(
-                                  width: width * 0.15,
-                                  height: height * 0.5,
-                                  decoration: const BoxDecoration(),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.03),
+                                  ),
                                   child: Column(
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(
-                                        Icons.group,
-                                        size: width * 0.1,
+                                      Icon(Icons.group,
+                                          size: width * 0.1,
+                                          color: Colors.black),
+                                      const Text(
+                                        '파티',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                      const Text('파티'),
                                     ],
                                   ),
-                                ),
-                                SizedBox(
-                                  width: width * 0.02,
                                 ),
                               ],
                             ),
@@ -358,22 +394,30 @@ class HomeScreen extends StatelessWidget {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: [
-                                          Text(
-                                            'zzuntekk',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: width * 0.04),
+                                          TextButton(
+                                            onPressed: () {
+                                              // 버튼이 눌렸을 때 실행되는 코드 작성
+                                            },
+                                            child: Text(
+                                              'zzuntekk',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: width * 0.04),
+                                            ),
                                           ),
-                                          SizedBox(
-                                            width: width * 0.02,
-                                          ),
-                                          Text(
-                                            '용인팟',
-                                            style: TextStyle(
+                                          TextButton(
+                                            onPressed: () {
+                                              // 버튼이 눌렸을 때 실행되는 코드 작성
+                                            },
+                                            child: Text(
+                                              '용인팟',
+                                              style: TextStyle(
                                                 color: Colors.black
                                                     .withOpacity(0.5),
-                                                fontSize: width * 0.03),
-                                          ),
+                                                fontSize: width * 0.03,
+                                              ),
+                                            ),
+                                          )
                                         ],
                                       ),
                                       Row(
@@ -381,12 +425,17 @@ class HomeScreen extends StatelessWidget {
                                           const Icon(
                                             Icons.location_on,
                                           ),
-                                          Text(
-                                            '서울시 강서구에서.', //위치값 받기
-                                            style: TextStyle(
-                                                color: Colors.black
-                                                    .withOpacity(0.5),
-                                                fontSize: width * 0.03),
+                                          TextButton(
+                                            onPressed: () {
+                                              // 버튼이 눌렸을 때 실행되는 코드 작성
+                                            },
+                                            child: Text(
+                                              '서울시 강서구에서.', //위치값 받기
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.5),
+                                                  fontSize: width * 0.03),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -418,31 +467,73 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          const Padding(
-                                            padding: EdgeInsets.only(left: 13),
-                                          ),
-                                          Transform.translate(
-                                            offset: const Offset(0, 2.5),
-                                            child: Icon(
-                                              CupertinoIcons.heart,
-                                              size: width * 0.065,
+                                          TextButton(
+                                            onPressed: () {},
+                                            style: TextButton.styleFrom(
+                                              padding: const EdgeInsets.only(
+                                                  left: 5),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(
+                                                  color: Colors.black,
+                                                  CupertinoIcons.heart,
+                                                  size: width * 0.065,
+                                                ),
+                                                const Text(
+                                                  '13',
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                          const Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 12)),
-                                          Icon(
-                                            CupertinoIcons.share,
-                                            size: width * 0.062,
+                                          TextButton(
+                                            onPressed: () {},
+                                            style: TextButton.styleFrom(
+                                              padding: const EdgeInsets.only(
+                                                  left: 5),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(
+                                                  color: Colors.black,
+                                                  CupertinoIcons.chat_bubble,
+                                                  size: width * 0.062,
+                                                ),
+                                                const Text(
+                                                  '13',
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                          const Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 12)),
-                                          Transform.translate(
-                                            offset: const Offset(0, 1.1),
-                                            child: Icon(
-                                              CupertinoIcons.chat_bubble,
-                                              size: width * 0.062,
+                                          TextButton(
+                                            onPressed: () {},
+                                            style: TextButton.styleFrom(
+                                              padding: const EdgeInsets.only(
+                                                  left: 5),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(
+                                                  color: Colors.black,
+                                                  CupertinoIcons.share,
+                                                  size: width * 0.062,
+                                                ),
+                                                const Text(
+                                                  '13',
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ],

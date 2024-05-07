@@ -181,16 +181,21 @@ class MyPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Container(
-                            decoration: const BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.horizontal(
-                                left: Radius.circular(20),
-                                right: Radius.circular(20),
+                          ElevatedButton(
+                            onPressed: () {
+                              // 버튼이 클릭되었을 때 수행할 작업
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black, // 버튼 배경색 설정
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.horizontal(
+                                  left: Radius.circular(10),
+                                  right: Radius.circular(10),
+                                ),
                               ),
                             ),
                             child: SizedBox(
-                              width: width * 0.35,
+                              width: width * 0.3,
                               height: height * 0.06,
                               child: const Center(
                                 child: Text(
@@ -202,20 +207,25 @@ class MyPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
-                            decoration: const BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.horizontal(
-                                left: Radius.circular(20),
-                                right: Radius.circular(20),
+                          ElevatedButton(
+                            onPressed: () {
+                              // 버튼이 클릭되었을 때 수행할 작업
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black, // 버튼 배경색 설정
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.horizontal(
+                                  left: Radius.circular(10),
+                                  right: Radius.circular(10),
+                                ),
                               ),
                             ),
                             child: SizedBox(
-                              width: width * 0.35,
+                              width: width * 0.3,
                               height: height * 0.06,
                               child: const Center(
                                 child: Text(
-                                  '프로필 수정',
+                                  '게시글 편집',
                                   style: TextStyle(
                                     color: Colors.white,
                                   ),
@@ -258,15 +268,21 @@ class MyPage extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               horizontal: width * 0.03,
                               vertical: height * 0.03),
-                          child: SizedBox(
-                            width: width * 0.6,
-                            height: height * 0.15,
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                image: DecorationImage(
-                                  image: AssetImage("images/background.png"),
-                                  fit: BoxFit.cover,
+                          child: GestureDetector(
+                            onTap: () {
+                              print('이미지 클릭됨');
+                              // 이미지가 클릭되었을 때 수행할 작업을 여기에 추가
+                            },
+                            child: SizedBox(
+                              width: width * 0.6,
+                              height: height * 0.15,
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  image: DecorationImage(
+                                    image: AssetImage("images/background.png"),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
