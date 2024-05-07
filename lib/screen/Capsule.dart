@@ -17,62 +17,20 @@ class Capsule extends StatelessWidget {
     double width = screenSize.width;
     double height = screenSize.height;
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: height * 0.065,
-        leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(
-              CupertinoIcons.xmark,
-              size: width * 0.075,
-              color: Colors.black54,
-            )),
-        actions: [
-          Transform.translate(
-            offset: Offset(0, height * 0.0016),
-            child: Icon(
-              CupertinoIcons.photo,
-              size: width * 0.09,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 22, right: 10),
-            child: SizedBox(
-              width: width * 0.135,
-              height: height * 0.038,
-              child: TextButton(
-                  style: TextButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      foregroundColor: Colors.white,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(40),
-                        right: Radius.circular(40),
-                      ))),
-                  onPressed: () {
-                    postController.sendData();
-                    Get.back();
-                  },
-                  child: Text(
-                    '수정하기',
-                    style: TextStyle(
-                        fontSize: width * 0.0353, fontWeight: FontWeight.w500),
-                  )),
-            ),
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-            child: Container(
-          // 화면 전체 박스
+      body: GestureDetector(
+        onTap: () {
+          _showDetailDialog(context); // 여기에 작은 창을 표시하는 기능 추가
+        },
+        child: Container(
           color: Colors.white,
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Padding(padding: EdgeInsets.only(top: height * 0.02)),
-            Container(
-              decoration: BoxDecoration(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.02),
+              ),
+              Container(
+                decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(width: 0.5, color: Colors.black),
                   boxShadow: const [
@@ -80,9 +38,52 @@ class Capsule extends StatelessWidget {
                       color: Colors.grey,
                       spreadRadius: 0,
                       blurRadius: 5.0,
-                      offset: Offset(0, 10), // changes position of shadow
+                      offset: Offset(0, 10),
                     ),
-                  ]),
+                  ],
+                ),
+                child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: width * 0.02,
+                    ),
+                    child: const Text('캡슐 클릭 sex')),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void _showDetailDialog(BuildContext context) {
+  Size screenSize = MediaQuery.of(context).size;
+  double width = screenSize.width;
+  double height = screenSize.height;
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: height * 0.02),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(width: 0.5, color: Colors.black),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.grey,
+                    spreadRadius: 0,
+                    blurRadius: 5.0,
+                    offset: Offset(0, 10),
+                  ),
+                ],
+              ),
               child: Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: width * 0.02,
@@ -99,8 +100,10 @@ class Capsule extends StatelessWidget {
                         Text(
                           '캡슐이름 넣는곳',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: width * 0.04),
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: width * 0.04,
+                          ),
                         ),
                         Text(
                           '2000.3.28에 업로드 - 날짜 넣는곳',
@@ -123,8 +126,8 @@ class Capsule extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
                             Container(
-                              width: width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
-                              height: height * 0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                              width: width * 0.5,
+                              height: height * 0.15,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage("images/background.png"),
@@ -136,8 +139,8 @@ class Capsule extends StatelessWidget {
                               width: width * 0.01,
                             ),
                             Container(
-                              width: width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
-                              height: height * 0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                              width: width * 0.5,
+                              height: height * 0.15,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage("images/background.png"),
@@ -149,8 +152,8 @@ class Capsule extends StatelessWidget {
                               width: width * 0.01,
                             ),
                             Container(
-                              width: width * 0.5, // 이미지의 너비를 화면 너비의 절반으로 설정
-                              height: height * 0.15, // 이미지의 높이를 화면 높이의 40%로 설정
+                              width: width * 0.5,
+                              height: height * 0.15,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage("images/background.png"),
@@ -169,20 +172,17 @@ class Capsule extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         TextButton(
-                          onPressed: () {
-                            // 버튼이 눌렸을 때 실행되는 코드 작성
-                          },
+                          onPressed: () {},
                           child: Text(
                             'zzuntekk',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.04),
+                              fontWeight: FontWeight.bold,
+                              fontSize: width * 0.04,
+                            ),
                           ),
                         ),
                         TextButton(
-                          onPressed: () {
-                            // 버튼이 눌렸을 때 실행되는 코드 작성
-                          },
+                          onPressed: () {},
                           child: Text(
                             '용인팟',
                             style: TextStyle(
@@ -196,14 +196,13 @@ class Capsule extends StatelessWidget {
                     Row(
                       children: [
                         TextButton(
-                          onPressed: () {
-                            // 버튼이 눌렸을 때 실행되는 코드 작성
-                          },
+                          onPressed: () {},
                           child: Text(
-                            '서울시 강서구에서.', //위치값 받기
+                            '서울시 강서구에서.',
                             style: TextStyle(
-                                color: Colors.black.withOpacity(0.5),
-                                fontSize: width * 0.03),
+                              color: Colors.black.withOpacity(0.5),
+                              fontSize: width * 0.03,
+                            ),
                           ),
                         ),
                       ],
@@ -214,12 +213,13 @@ class Capsule extends StatelessWidget {
                         decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
-                        child: const Column(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', //글 내용
+                              'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
                               style: TextStyle(
+                                fontSize: width * 0.03,
                                 color: Colors.black,
                               ),
                             ),
@@ -281,14 +281,14 @@ class Capsule extends StatelessWidget {
                     ),
                     SizedBox(
                       height: height * 0.02,
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
-          ]),
-        )),
-      ),
-    );
-  }
+          ],
+        ),
+      );
+    },
+  );
 }
