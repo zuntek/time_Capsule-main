@@ -61,13 +61,173 @@ class GroupPage extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          // 버튼이 눌렸을 때 실행되는 코드 작성
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text('그룹 멤버'),
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize
+                                        .min, // 다이얼로그의 크기를 최소화하여 컨텐츠에 맞게 조절
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Card(
+                                            shadowColor: const Color.fromARGB(
+                                                255, 147, 167, 242),
+                                            elevation: 3,
+                                            clipBehavior: Clip.antiAlias,
+                                            shape: const CircleBorder(
+                                              side: BorderSide(
+                                                width: 1,
+                                              ),
+                                            ),
+                                            child: SizedBox(
+                                              width: width * 0.08,
+                                              height: height * 0.08,
+                                              child: const Image(
+                                                image: AssetImage(
+                                                    'images/profile.png'),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: width * 0.02),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'zzuntekk',
+                                                style: TextStyle(
+                                                  fontSize: width * 0.03,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '홍준택',
+                                                style: TextStyle(
+                                                  fontSize: width * 0.02,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: width * 0.02,
+                                          ),
+                                          const Icon(
+                                            CupertinoIcons.person_solid,
+                                            color: Colors.yellow,
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Card(
+                                            shadowColor: const Color.fromARGB(
+                                                255, 147, 167, 242),
+                                            elevation: 3,
+                                            clipBehavior: Clip.antiAlias,
+                                            shape: const CircleBorder(
+                                              side: BorderSide(
+                                                width: 1,
+                                              ),
+                                            ),
+                                            child: SizedBox(
+                                              width: width * 0.08,
+                                              height: height * 0.08,
+                                              child: const Image(
+                                                image: AssetImage(
+                                                    'images/profile.png'),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: width * 0.02),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'zzuntekk',
+                                                style: TextStyle(
+                                                  fontSize: width * 0.03,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '홍준택',
+                                                style: TextStyle(
+                                                  fontSize: width * 0.02,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Card(
+                                            shadowColor: const Color.fromARGB(
+                                                255, 147, 167, 242),
+                                            elevation: 3,
+                                            clipBehavior: Clip.antiAlias,
+                                            shape: const CircleBorder(
+                                              side: BorderSide(
+                                                width: 1,
+                                              ),
+                                            ),
+                                            child: SizedBox(
+                                              width: width * 0.08,
+                                              height: height * 0.08,
+                                              child: const Image(
+                                                image: AssetImage(
+                                                    'images/profile.png'),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: width * 0.02),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'zzuntekk',
+                                                style: TextStyle(
+                                                  fontSize: width * 0.03,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '홍준택',
+                                                style: TextStyle(
+                                                  fontSize: width * 0.02,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('닫기'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         },
                         child: Text(
                           '그룹멤버: 5',
                           style: TextStyle(
-                              color: Colors.black.withOpacity(0.5),
-                              fontSize: width * 0.03),
+                            color: Colors.black.withOpacity(0.5),
+                            fontSize: width * 0.03,
+                          ),
                         ),
                       ),
                     ],
@@ -76,17 +236,122 @@ class GroupPage extends StatelessWidget {
               ),
               actions: [
                 TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.only(left: 5),
-                  ),
-                  child: Icon(
-                    color: Colors.black,
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('그룹 멤버 추가'),
+                          content: const TextField(
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              hintText: "닉네임 입력",
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(color: Colors.grey),
+                            ),
+                            maxLength: 16,
+                            maxLines: 1,
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text('추가'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('닫기'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: const Icon(
                     Icons.group_add,
-                    size: width * 0.065,
+                    color: Colors.black,
                   ),
                 ),
-                const Padding(padding: EdgeInsets.only(right: 8)),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('그룹 알림'),
+                          content: SingleChildScrollView(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Text('???님의 파티 추가 요청'),
+                                SizedBox(
+                                  width: width * 0.05,
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: SizedBox(
+                                    width: width * 0.15,
+                                    height: height * 0.05,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          '추가',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: SizedBox(
+                                    width: width * 0.15,
+                                    height: height * 0.05,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          '거절',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('닫기'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: const Icon(
+                    Icons.notifications_none,
+                    color: Colors.black,
+                  ),
+                ),
               ],
             ),
             SliverPadding(
@@ -126,6 +391,13 @@ class GroupPage extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: width * 0.05),
+                      ),
+                      Text(
+                        '파티코드: 123456', //위치값 받기
+                        style: TextStyle(
+                          color:
+                              const Color.fromRGBO(0, 0, 0, 1).withOpacity(0.5),
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

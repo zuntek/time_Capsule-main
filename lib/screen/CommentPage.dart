@@ -45,29 +45,7 @@ class CommentPage extends StatelessWidget {
               shape: const Border(
                   bottom: BorderSide(color: Colors.grey, width: 0.5)),
               leading: Row(
-                children: [
-                  SizedBox(width: width * 0.03),
-                  Text(
-                    'CapInNet',
-                    style: TextStyle(
-                        fontFamily: 'Kalam',
-                        fontSize: width * 0.05,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 53, 68, 80)),
-                  ),
-                ],
-              ),
-              actions: [
-                Icon(Icons.search, size: width * 0.083),
-                const Padding(padding: EdgeInsets.only(right: 8)),
-                Icon(Icons.menu, size: width * 0.09),
-                const Padding(padding: EdgeInsets.only(right: 10)),
-              ],
-            ),
-            SliverPadding(
-              padding: EdgeInsets.only(top: height * 0.03),
-              sliver: SliverToBoxAdapter(
-                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     '댓글',
@@ -76,164 +54,243 @@ class CommentPage extends StatelessWidget {
                       fontWeight: FontWeight.w300,
                       color: Colors.black.withOpacity(0.8),
                     ),
-                  )
+                  ),
                 ],
-              )),
+              ),
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.back,
+                      size: width * 0.075,
+                      color: Colors.black54,
+                    )),
+              ],
             ),
+            /*SliverPadding(
+              padding: EdgeInsets.only(top: height * 0.03),
+              sliver: SliverToBoxAdapter(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 20.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '댓글',
+                        style: TextStyle(
+                          fontSize: width * 0.05,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black.withOpacity(0.8),
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: Icon(
+                            CupertinoIcons.back,
+                            size: width * 0.075,
+                            color: Colors.black54,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),*/
             SliverPadding(
               padding: EdgeInsets.all(width * 0.05),
               sliver: SliverToBoxAdapter(
-                  child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(width: 0.0, color: Colors.black),
-                  borderRadius: const BorderRadius.horizontal(
-                      left: Radius.circular(20), right: Radius.circular(20)),
-                ),
+                  child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: width * 0.02),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: height * 0.01,
                     ),
-                    Text(
-                      'zzuntekk의 댓글',
-                      style: TextStyle(
-                        fontSize: width * 0.03,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(width * 0.03),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Card(
-                                shadowColor:
-                                    const Color.fromARGB(255, 147, 167, 242),
-                                elevation: 3,
-                                clipBehavior: Clip.antiAlias,
-                                shape: const CircleBorder(
-                                    side: BorderSide(
-                                  width: 1,
-                                )),
-                                child: SizedBox(
-                                  width: width * 0.1,
-                                  height: height * 0.1,
-                                  child: const Image(
-                                    image: AssetImage('images/profile.png'),
-                                  ),
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            Card(
+                              shadowColor:
+                                  const Color.fromARGB(255, 147, 167, 242),
+                              elevation: 3,
+                              clipBehavior: Clip.antiAlias,
+                              shape: const CircleBorder(
+                                  side: BorderSide(
+                                width: 1,
+                              )),
+                              child: SizedBox(
+                                width: width * 0.08,
+                                height: height * 0.05,
+                                child: const Image(
+                                  image: AssetImage('images/profile.png'),
                                 ),
                               ),
-                              SizedBox(
-                                width: width * 0.03,
+                            ),
+                            Text(
+                              'zzuntekk',
+                              style: TextStyle(
+                                fontSize: width * 0.02,
+                                fontWeight: FontWeight.bold,
                               ),
-
-                              /* Text(
-                                          'zzuntekk',
-                                          style: TextStyle(
-                                            fontSize: width * 0.03,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),*/
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: width * 0.02,
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
                               Text(
-                                '사랑해요',
+                                '와ㅣ와ㅣ러ㅏㄴ아ㅣㄴㅇㅁ롸ㅓㄴㅇㄹㅇ나ㅣ라ㅣㄴㅇ론아ㅣㅓ로어린ㄴㅇㄹㄴㅇㄴㅇㄹㄹㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹ',
                                 style: TextStyle(
-                                  fontSize: width * 0.03,
+                                  fontSize: width * 0.02,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
+                              Text(
+                                '2024.05.12',
+                                style: TextStyle(
+                                  fontSize: width * 0.02,
                                 ),
                               ),
                             ],
                           ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.only(left: 5),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              Column(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.heart,
-                                  ),
-                                  Text('20')
-                                ],
+                              Icon(
+                                color: Colors.black,
+                                CupertinoIcons.heart,
+                                size: width * 0.045,
+                              ),
+                              const Text(
+                                '13',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
                               ),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               )),
             ),
             SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+              padding: EdgeInsets.all(width * 0.05),
               sliver: SliverToBoxAdapter(
-                  child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(width: 0.0, color: Colors.black),
-                  borderRadius: const BorderRadius.horizontal(
-                      left: Radius.circular(20), right: Radius.circular(20)),
-                ),
+                  child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: width * 0.02),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: height * 0.01,
                     ),
-                    Text(
-                      'insu_1004의 댓글',
-                      style: TextStyle(
-                        fontSize: width * 0.03,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(width * 0.03),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Card(
-                                shadowColor:
-                                    const Color.fromARGB(255, 147, 167, 242),
-                                elevation: 3,
-                                clipBehavior: Clip.antiAlias,
-                                shape: const CircleBorder(
-                                    side: BorderSide(
-                                  width: 1,
-                                )),
-                                child: SizedBox(
-                                  width: width * 0.1,
-                                  height: height * 0.1,
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            Card(
+                              shadowColor:
+                                  const Color.fromARGB(255, 147, 167, 242),
+                              elevation: 3,
+                              clipBehavior: Clip.antiAlias,
+                              shape: const CircleBorder(
+                                  side: BorderSide(
+                                width: 1,
+                              )),
+                              child: SizedBox(
+                                width: width * 0.08,
+                                height: height * 0.05,
+                                child: const Image(
+                                  image: AssetImage('images/travel.png'),
                                 ),
                               ),
-                              SizedBox(
-                                width: width * 0.03,
+                            ),
+                            Text(
+                              'zunah',
+                              style: TextStyle(
+                                fontSize: width * 0.02,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: width * 0.02,
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                '와ㅣ와ㅣ러ㅏㄴ아ㅣㄴㅇㅁ롸ㅓㄴㅇㄹㅇ나ㅣ라ㅣㄴㅇ론아ㅣㅓ로어린ㄴㅇㄹㄴㅇㄴㅇㄹㄹㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹ',
+                                style: TextStyle(
+                                  fontSize: width * 0.02,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
                               ),
                               Text(
-                                '정말 멋있는 사진... 배우고 갑니다...',
+                                '2024.05.12',
                                 style: TextStyle(
-                                  fontSize: width * 0.03,
+                                  fontSize: width * 0.02,
                                 ),
                               ),
                             ],
                           ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.only(left: 5),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              Column(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.heart,
-                                  ),
-                                  Text('8')
-                                ],
+                              Icon(
+                                color: Colors.white,
+                                CupertinoIcons.heart,
+                                size: width * 0.045,
+                              ),
+                              const Text(
+                                '13',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
                               ),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -244,32 +301,59 @@ class CommentPage extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(width * 0.02),
-        child: const TextField(
-          decoration: InputDecoration(
-            hintText: "댓글을 입력하세요...",
-            border: OutlineInputBorder(),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
           ),
-          maxLength: 300,
-          maxLines: 3,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+            child: Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: height * 0.06, // 텍스트 입력 필드의 높이 조정
+
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        hintText: "댓글을 입력하세요...",
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
+                      maxLength: 300,
+                      maxLines: 1, // 단일 라인 입력으로 변경
+                    ),
+                  ),
+                ),
+                SizedBox(width: width * 0.02),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      // 댓글 전송 기능 구현
+                    },
+                    icon: const Icon(
+                      Icons.send,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
-        /*TextButton(
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    foregroundColor: Colors.white,
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.horizontal(
-                      left: Radius.circular(40),
-                      right: Radius.circular(40),
-                    ))),
-                onPressed: () {
-                  postController.sendData();
-                  Get.back();
-                },
-                child: Text(
-                  '완료',
-                  style: TextStyle(
-                      fontSize: width * 0.0353, fontWeight: FontWeight.w500),
-                )),*/
       ),
     );
   }

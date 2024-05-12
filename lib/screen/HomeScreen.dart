@@ -8,8 +8,11 @@ import 'package:time_capsule/controller/PostController.dart';
 import 'package:time_capsule/Model/PostModel.dart';
 import 'package:time_capsule/controller/BottomButtonController.dart';
 import 'package:time_capsule/controller/PhotoController.dart';
+import 'package:time_capsule/screen/CommentPage.dart';
+import 'package:time_capsule/screen/MakePartyPage.dart';
 import 'package:time_capsule/screen/MapPage.dart';
 import 'package:time_capsule/widget/Expandable_fab.dart';
+import 'package:time_capsule/widget/SearchBar.dart';
 import 'package:time_capsule/widget/dropDownWidget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -28,12 +31,8 @@ class HomeScreen extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     double width = screenSize.width;
     double height = screenSize.height;
-    final List<String> images = [
-      'images/profile.png'
-          'images/profile.png'
-          'images/profile.png'
-      // Add more image URLs as needed
-    ];
+    int likeCount = 0;
+    // 검색어를 저장할 변수
 
     return Scaffold(
       floatingActionButton: ExpandableFab(
@@ -86,9 +85,22 @@ class HomeScreen extends StatelessWidget {
               //   ),
               // ),
               actions: [
-                Icon(
-                  Icons.search,
-                  size: width * 0.083,
+                IconButton(
+                  onPressed: () {
+                    Get.to(SearchBar(
+                      isSearchExpanded: false,
+                      onSearchIconPressed: () {
+                        // 검색 아이콘 클릭 시 실행될 동작
+                      },
+                      onSearchFieldTapped: () {
+                        // 검색 필드 클릭 시 실행될 동작
+                      },
+                    ));
+                  },
+                  icon: Icon(
+                    Icons.search,
+                    size: width * 0.083,
+                  ),
                 ),
                 const Padding(padding: EdgeInsets.only(right: 8)),
 
@@ -144,10 +156,11 @@ class HomeScreen extends StatelessWidget {
                                   width: width * 0.02,
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.to(MakePartyPage());
+                                  },
                                   style: TextButton.styleFrom(
-                                    padding: EdgeInsets
-                                        .zero, // 패딩을 0으로 설정하여 아이콘과 텍스트 사이의 간격을 없앰
+                                    padding: EdgeInsets.zero,
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize
@@ -468,7 +481,10 @@ class HomeScreen extends StatelessWidget {
                                             MainAxisAlignment.end,
                                         children: [
                                           TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              // 하트 아이콘을 누를 때마다 숫자를 1씩 증가시킵니다.
+                                              likeCount++;
+                                            },
                                             style: TextButton.styleFrom(
                                               padding: const EdgeInsets.only(
                                                   left: 5),
@@ -481,9 +497,9 @@ class HomeScreen extends StatelessWidget {
                                                   CupertinoIcons.heart,
                                                   size: width * 0.065,
                                                 ),
-                                                const Text(
-                                                  '13',
-                                                  style: TextStyle(
+                                                Text(
+                                                  '$likeCount',
+                                                  style: const TextStyle(
                                                     color: Colors.black,
                                                   ),
                                                 ),
@@ -491,7 +507,9 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                           ),
                                           TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              Get.to(CommentPage());
+                                            },
                                             style: TextButton.styleFrom(
                                               padding: const EdgeInsets.only(
                                                   left: 5),
@@ -595,5 +613,19 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool isSearching = false;
+  String searchQuery = '';
+  Widget buildSearchBar() {
+    return isSearching
+        ? TextField(
+            decoration: const InputDecoration(hintText: '검색어를 입력하세요'),
+            onChanged: (value) {
+              // 검색어가 변경될 때마다 저장
+              searchQuery = value;
+            },
+          )
+        : Container();
   }
 }

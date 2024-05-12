@@ -7,6 +7,7 @@ import 'package:time_capsule/screen/Chat_Screen.dart';
 import 'package:time_capsule/screen/CommentPage.dart';
 import 'package:time_capsule/screen/JoinPage.dart';
 import 'package:time_capsule/screen/LoginPage.dart';
+import 'package:time_capsule/screen/MakePartyPage.dart';
 import 'package:time_capsule/screen/MyPage.dart';
 import 'package:time_capsule/controller/LocationController.dart';
 import 'package:time_capsule/controller/PostController.dart';
@@ -72,7 +73,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'CapInNet',
-      home: Capsule(),
+      home: HomeScreen(),
     );
   }
 }
