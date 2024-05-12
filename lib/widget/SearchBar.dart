@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatelessWidget {
+class GetSearchBar extends StatelessWidget {
   final bool isSearchExpanded;
   final VoidCallback onSearchIconPressed;
   final VoidCallback onSearchFieldTapped;
 
-  const SearchBar({
+  const GetSearchBar({
     super.key,
     required this.isSearchExpanded,
     required this.onSearchIconPressed,

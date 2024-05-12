@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
               actions: [
                 IconButton(
                   onPressed: () {
-                    Get.to(SearchBar(
+                    Get.to(GetSearchBar(
                       isSearchExpanded: false,
                       onSearchIconPressed: () {
                         // 검색 아이콘 클릭 시 실행될 동작
