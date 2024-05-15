@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:time_capsule/screen/JoinPage.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -83,7 +86,7 @@ class Login extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        // 버튼이 클릭되었을 때 수행할 작업
+                        Get.to(JoinPage());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black, // 버튼 배경색 설정

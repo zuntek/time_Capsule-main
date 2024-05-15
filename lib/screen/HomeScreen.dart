@@ -9,6 +9,7 @@ import 'package:time_capsule/Model/PostModel.dart';
 import 'package:time_capsule/controller/BottomButtonController.dart';
 import 'package:time_capsule/controller/PhotoController.dart';
 import 'package:time_capsule/screen/CommentPage.dart';
+import 'package:time_capsule/screen/JoinPage.dart';
 import 'package:time_capsule/screen/MakePartyPage.dart';
 import 'package:time_capsule/screen/MapPage.dart';
 import 'package:time_capsule/widget/Expandable_fab.dart';
@@ -93,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                         // 검색 아이콘 클릭 시 실행될 동작
                       },
                       onSearchFieldTapped: () {
-                        // 검색 필드 클릭 시 실행될 동작
+                        Text1();
                       },
                     ));
                   },
@@ -532,7 +533,9 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                           ),
                                           TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              Get.to(JoinPage());
+                                            },
                                             style: TextButton.styleFrom(
                                               padding: const EdgeInsets.only(
                                                   left: 5),

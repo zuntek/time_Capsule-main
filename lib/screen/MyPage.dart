@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:time_capsule/controller/BottomButtonController.dart';
 import 'package:time_capsule/controller/PostController.dart';
+import 'package:time_capsule/screen/FixProfile.dart';
 
 class MyPage extends StatelessWidget {
   MyPage({super.key});
@@ -183,7 +184,7 @@ class MyPage extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              // 버튼이 클릭되었을 때 수행할 작업
+                              Get.to(Profile());
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black, // 버튼 배경색 설정

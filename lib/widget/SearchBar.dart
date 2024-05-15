@@ -14,6 +14,9 @@ class GetSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    double width = screenSize.width;
+    double height = screenSize.height;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -39,6 +42,7 @@ class GetSearchBar extends StatelessWidget {
                             child: Text(
                               'Search',
                               style: TextStyle(
+                                fontSize: width * 0.03,
                                 color: isSearchExpanded
                                     ? Colors.black
                                     : Colors.grey[600],
@@ -83,4 +87,17 @@ class GetSearchBar extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget Text1() {
+  return const TextField(
+    decoration: InputDecoration(
+      hintText: "댓글을 입력하세요...",
+      border: InputBorder.none,
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+      hintStyle: TextStyle(color: Colors.grey),
+    ),
+    maxLength: 300,
+    maxLines: 1, // 단일 라인 입력으로 변경
+  );
 }

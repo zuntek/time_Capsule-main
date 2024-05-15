@@ -324,12 +324,12 @@ class CommentPage extends StatelessWidget {
 
                     child: const TextField(
                       decoration: InputDecoration(
-                        hintText: "댓글을 입력하세요...",
+                        hintText: "댓글 입력하기...",
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                         hintStyle: TextStyle(color: Colors.grey),
                       ),
-                      maxLength: 300,
+                      maxLength: 20,
                       maxLines: 1, // 단일 라인 입력으로 변경
                     ),
                   ),
